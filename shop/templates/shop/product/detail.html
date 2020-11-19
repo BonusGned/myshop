@@ -1,5 +1,7 @@
 {% extends 'shop/base.html' %}
+{% load i18n %}
 {% load static %}
+
 
 {% block title %}
     {{ product.name }}
@@ -17,7 +19,7 @@
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
-            <input type="submit" value="Add to cart">
+            <input type="submit" value="{% trans 'Добавить в корзину' %}">
         </form>
         {{ product.description|linebreaks }}
     </div>
